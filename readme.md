@@ -74,10 +74,10 @@ ENVIRONMENT VARIABLES
 
 ## Available Commands
 
-`jenv create` - Creates an environment of the structure described in [Directory Structure](#directory-structure)
-`jenv use` - Starts using an environment in the current shell
-`jenv unuse` - Stops the current shell from using an environment
-`jenv run <script_name>` - Runs a specified script
-`jenv view <script_name>` - Prints a specified script
-`jenv list` or `jenv ls` - Lists all available JENV environments
-`jenv current` - Prints out the current JENV environment
+* `jenv create` - Creates an environment of the structure described in [Directory Structure](#directory-structure)
+* `jenv use` - Starts using an environment in the current shell
+* `jenv unuse` - Stops the current shell from using an environment
+* `jenv run <script_name>` - Runs a specified script
+* `jenv view <script_name>` - Prints a specified script
+* `jenv list` or `jenv ls` - Lists all available JENV environments
+* `jenv current` - Prints out the current JENV environment
