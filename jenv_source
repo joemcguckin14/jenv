@@ -1,0 +1,71 @@
+#!/bin/bash
+
+working_dir=$(dirname $0)
+source $working_dir/logging.sh
+source $working_dir/create.sh
+source $working_dir/list.sh
+source $working_dir/use.sh
+source $working_dir/scripts.sh
+source $working_dir/usage.sh
+
+_jenv_edit () {
+    env_dir=${DEV_ENV_DIR:-~/.dev_envs/}
+    if [ "" != "$1" ]; then # TODO: if current env is set edit that
+        # Edit implementation
+        :
+    else
+        _log_line ERROR "Must supply an environment name as an argument"
+        _log_line INFO "-------------------"
+        find $env_dir* -type d -maxdepth 0 -exec basename {} \;
+        _log_line INFO "-------------------"
+    fi
+}
+
+_jenv_get_color_for_prompt () {
+  echo "\033[$1m"
+}
+
+jenv_get_prompt () {
+  if [ "" = "$CURRENT_DEV_VIRTUAL_ENVIRONMENT" ]; then
+    echo ""
+  else
+    echo "[ $CURRENT_DEV_VIRTUAL_ENVIRONMENT ] "
+  fi
+}
+
+jenv_prepend_to_prompt () {
+  export PROMPT=$(_jenv_get_color_for_prompt 35)'$(jenv_get_prompt)'$PROMPT
+}
+
+_jenv_current () {
+  echo $CURRENT_DEV_VIRTUAL_ENVIRONMENT
+}
+
+jenv () {
+  case $1 in
+    "create")
+      _jenv_create ${@:2}
+      ;;
+    "use")
+      _jenv_use ${@:2}
+      ;;
+    "unuse")
+      _jenv_unuse ${@:2}
+      ;;
+    "ls" | "list")
+      _jenv_list ${@:2}
+      ;;
+    "current")
+      _jenv_current ${@:2}
+      ;;
+    "run")
+      _jenv_run_script ${@:2}
+      ;;
+    "view")
+      _jenv_view_script ${@:2}
+      ;;
+    *)
+      _jenv_usage ${@:2}
+      ;;
+  esac
+}
