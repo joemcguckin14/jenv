@@ -3,7 +3,7 @@ source $working_dir/logging.sh
 source $working_dir/options.sh
 
 _jenv_resolve_paths () {
-  env_dir=${DEV_ENV_DIR:-~/.dev_envs/}
+  env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
   _jenv_env_path=$env_dir$1
   _log_line DEBUG "Resolved env path: $_jenv_env_path"
   _jenv_pre_use_path="$_jenv_env_path/pre_use"
@@ -40,7 +40,7 @@ _jenv_use () {
 }
 
 _jenv_unuse () {
-  env_dir=${DEV_ENV_DIR:-~/.dev_envs/}
+  env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
   full_file_path=$env_dir$CURRENT_DEV_VIRTUAL_ENVIRONMENT
   if [[ -d $full_file_path ]] && [ "" != "$CURRENT_DEV_VIRTUAL_ENVIRONMENT" ]; then
     full_file_path="$full_file_path/post_unuse"
