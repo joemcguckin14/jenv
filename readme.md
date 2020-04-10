@@ -1,7 +1,7 @@
 - [Installation](#installation)
-- [Configuration through environment variables](#configuration-through-environment-variables)
+- [Configuration Through Environment Variables](#configuration-through-environment-variables)
 - [Environment Configuration](#environment-configuration)
-    - [DIRECTORY STRUCTURE](#directory-structure)
+    - [Directory Structure](#directory-structure)
     - [Environment Configuration Files](#environment-configuration-files)
 - [Available Commands](#available-commands)
 
@@ -23,7 +23,7 @@ or
 git clone https://github.com/joemcguckin14/jenv.git
 ```
 
-Then add a source command to your shells rc folder (**~/.bashrc** for most people):
+Then add a source command to your shells rc file (**~/.bashrc** for most people):
 
 `~.bashrc`
 ```bash
@@ -38,7 +38,7 @@ add the following line to your rc file:
 jenv_prepend_to_prompt
 ```
 
-## Configuration through environment variables
+## Configuration Through Environment Variables
 
 ENVIRONMENT VARIABLES
 
@@ -48,7 +48,7 @@ ENVIRONMENT VARIABLES
 
 ## Environment Configuration
 
-#### DIRECTORY STRUCTURE
+#### Directory Structure
 
 ```
 <enviornment_directory>
