@@ -7,12 +7,7 @@
 
 ## Installation
 
-First `cd` into the location you would like to install jenv
-
-Ex:
-```bash
-cd ~
-```
+First `cd` into the location you would like to install jenv (Ex: `cd ~`)
 
 Next clone the repo with:
 ```bash
@@ -27,15 +22,15 @@ Then add a source command to your shells rc file (**~/.bashrc** for most people)
 
 `~.bashrc`
 ```bash
-echo "source <path to jenv>/jenv_source"
+echo "source <path to jenv>/jenv_source" >> ~/.bashrc
 ```
 
 *OPTIONAL*: If you would like to have the current environment on your shell, also
-add the following line to your rc file:
+add the following line to your rc file (***NOTE: This must be called after the source command***):
 
 `~.bashrc`
 ```bash
-jenv_prepend_to_prompt
+echo "jenv_prepend_to_prompt" >> ~/.bashrc
 ```
 
 ## Configuration Through Environment Variables
