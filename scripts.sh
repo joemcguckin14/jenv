@@ -4,7 +4,7 @@ source $working_dir/usage.sh
 source $working_dir/options.sh
 
 _jenv_run_script () {
-  env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
+  _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
   if [ "" = "$1" ]; then
     _jenv_usage_run_script
     return
@@ -62,15 +62,15 @@ _jenv_run_script () {
   else
     _log_line ERROR "Environment does not exist: $_jenv_dev_environment"
     _log_line INFO "[Try]"
-    find $env_dir* -type d -maxdepth 0 -exec basename {} \;
+    find $_jenv_env_dir* -type d -maxdepth 0 -exec basename {} \;
   fi
 }
 
 _jenv_view_script () {
-  env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
+  _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
   jenv use $1
   if [ $? = 39 ]; then
-    script_dir=$env_dir$1/scripts/
+    script_dir=$_jenv_env_dir$1/scripts/
     if [[ -d $script_dir ]] && [ "" != "$(ls $script_dir)" ]; then
         if [ "" != "$2" ]; then
             script_path=$script_dir$2

@@ -9,14 +9,14 @@ source $working_dir/scripts.sh
 source $working_dir/usage.sh
 
 _jenv_edit () {
-    env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
+    _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
     if [ "" != "$1" ]; then # TODO: if current env is set edit that
         # Edit implementation
         :
     else
         _log_line ERROR "Must supply an environment name as an argument"
         _log_line INFO "-------------------"
-        find $env_dir* -type d -maxdepth 0 -exec basename {} \;
+        find $_jenv_env_dir* -type d -maxdepth 0 -exec basename {} \;
         _log_line INFO "-------------------"
     fi
 }
