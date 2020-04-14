@@ -34,7 +34,7 @@ jenv_get_prompt () {
 }
 
 jenv_prepend_to_prompt () {
-  export PROMPT=$(_jenv_get_color_for_prompt 35)$(jenv_get_prompt)$PROMPT
+  export PROMPT=$(_jenv_get_color_for_prompt 35)'$(jenv_get_prompt)'$PROMPT
 }
 
 _jenv_current () {

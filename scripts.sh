@@ -47,7 +47,7 @@ _jenv_run_script () {
             else
                 _log_line ERROR "$1 is not a valid script in $_jenv_dev_environment"
                 _log_line INFO "[Try]"
-                find $_jenv_scripts_path* -type d -maxdepth 0 -exec basename {} \;
+                find $_jenv_scripts_path/* -type f -maxdepth 0 -exec basename {} \;
             fi
         else
             _log_line ERROR "Must supply an a script to run"
