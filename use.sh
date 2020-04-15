@@ -1,6 +1,5 @@
-working_dir=$(dirname $0)
-source $working_dir/logging.sh
-source $working_dir/options.sh
+source $JENV_WORKING_DIR/logging.sh
+source $JENV_WORKING_DIR/options.sh
 
 _jenv_resolve_paths () {
   _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}

@@ -1,6 +1,5 @@
-working_dir=$(dirname $0)
-source $working_dir/logging.sh
-source $working_dir/use.sh
+source $JENV_WORKING_DIR/logging.sh
+source $JENV_WORKING_DIR/use.sh
 
 _jenv_create () {
     if [ "" != "$1" ]; then

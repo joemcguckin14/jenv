@@ -1,7 +1,6 @@
-working_dir=$(dirname $0)
-source $working_dir/use.sh
-source $working_dir/usage.sh
-source $working_dir/options.sh
+source $JENV_WORKING_DIR/use.sh
+source $JENV_WORKING_DIR/usage.sh
+source $JENV_WORKING_DIR/options.sh
 
 _jenv_run_script () {
   _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
@@ -42,7 +41,7 @@ _jenv_run_script () {
                     fi
                 else
                     _log_line DEBUG "Running script as bash script"
-                    bash $working_dir/runner.sh $_jenv_pre_use_path $script_path $_jenv_post_unuse_path
+                    bash $JENV_WORKING_DIR/runner.sh $_jenv_pre_use_path $script_path $_jenv_post_unuse_path
                 fi
             else
                 _log_line ERROR "$1 is not a valid script in $_jenv_dev_environment"

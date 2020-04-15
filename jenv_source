@@ -1,12 +1,12 @@
 #!/bin/bash
 
-working_dir=$(dirname $0)
-source $working_dir/logging.sh
-source $working_dir/create.sh
-source $working_dir/list.sh
-source $working_dir/use.sh
-source $working_dir/scripts.sh
-source $working_dir/usage.sh
+export JENV_WORKING_DIR=$(dirname $0)
+source $JENV_WORKING_DIR/logging.sh
+source $JENV_WORKING_DIR/create.sh
+source $JENV_WORKING_DIR/list.sh
+source $JENV_WORKING_DIR/use.sh
+source $JENV_WORKING_DIR/scripts.sh
+source $JENV_WORKING_DIR/usage.sh
 
 _jenv_edit () {
     _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
