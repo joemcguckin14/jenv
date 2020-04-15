@@ -1,9 +1,14 @@
+- [About](#about)
 - [Installation](#installation)
 - [Configuration Through Environment Variables](#configuration-through-environment-variables)
 - [Environment Configuration](#environment-configuration)
     - [Directory Structure](#directory-structure)
     - [Environment Configuration Files](#environment-configuration-files)
 - [Available Commands](#available-commands)
+
+## About
+
+JENV is a environment configuration tool written in bash and meant to have minimal dependencies. It allows developers to have more control over their development environment when switching between projects and gives the ability to run scripts in environments that you are not current in.
 
 ## Installation
 
@@ -20,26 +25,30 @@ git clone https://github.com/joemcguckin14/jenv.git
 
 Then add a source command to your shells rc file (**~/.bashrc** for most people):
 
-`~.bashrc`
 ```bash
 echo "source <path to jenv>/jenv_source" >> ~/.bashrc
 ```
 
-*OPTIONAL*: If you would like to have the current environment on your shell, also
+*OPTIONAL*: If you would like to have the current environment in your shell prompt, also
 add the following line to your rc file (***NOTE: This must be called after the source command***):
 
-`~.bashrc`
 ```bash
 echo "jenv_prepend_to_prompt" >> ~/.bashrc
+```
+
+Ex `~/.bashrc`
+```bash
+source ~/jenv/jenv_source
+jenv_prepend_to_prompt
 ```
 
 ## Configuration Through Environment Variables
 
 ENVIRONMENT VARIABLES
 
-| VARIABLE         | DESCRIPTION                                               | DEFAULT     |
-|------------------|-----------------------------------------------------------|-------------|
-| JENV_DEV_ENV_DIR | The directory in which all of you environments are stored | ~/.dev_envs/|
+| VARIABLE         | DESCRIPTION                                               | DEFAULT      |
+| ---------------- | --------------------------------------------------------- | ------------ |
+| JENV_DEV_ENV_DIR | The directory in which all of you environments are stored | ~/.dev_envs/ |
 
 ## Environment Configuration
 
@@ -63,8 +72,9 @@ ENVIRONMENT VARIABLES
 
 #### Environment Configuration Files
 
-*pre_use* - Ran when the `jenv use` command is run to enter an environment
-*post_unuse* - Ran directly after tht `jenv unsuse` command is run to leave an environment
+* ***pre_use*** - Ran when the `jenv use` command is run to enter an environment
+* ***post_unuse*** - Ran directly after tht `jenv unsuse` command is run to leave an environment
+* ***scripts*** - Directory containing all the scripts that can be run with `jenv run`
 
 
 ## Available Commands
@@ -73,6 +83,7 @@ ENVIRONMENT VARIABLES
 * `jenv use` - Starts using an environment in the current shell
 * `jenv unuse` - Stops the current shell from using an environment
 * `jenv run <script_name>` - Runs a specified script
-* `jenv view <script_name>` - Prints a specified script
+* `jenv view <env_name> <script_name>` - Prints a specified script
 * `jenv list` or `jenv ls` - Lists all available JENV environments
 * `jenv current` - Prints out the current JENV environment
+* `jenv` - Prints out usage
