@@ -9,7 +9,6 @@ _jenv_reset_vars () {
 _jenv_run_script_options () {
     _jenv_reset_vars
     while getopts ":vde:l" opt; do
-        echo "OPTION: $opt ARG: $OPTARG"
         case ${opt} in
             e )
                 _jenv_attempting_env=true
