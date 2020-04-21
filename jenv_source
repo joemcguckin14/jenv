@@ -13,7 +13,7 @@ source $JENV_WORKING_DIR/scripts.sh
 source $JENV_WORKING_DIR/usage.sh
 
 _jenv_edit () {
-    _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
+    _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.jenv/}
     if [ "" != "$1" ]; then # TODO: if current env is set edit that
         # Edit implementation
         :

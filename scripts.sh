@@ -3,7 +3,7 @@ source $JENV_WORKING_DIR/usage.sh
 source $JENV_WORKING_DIR/options.sh
 
 _jenv_run_script () {
-  _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
+  _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.jenv/}
   if [ "" = "$1" ]; then
     _jenv_usage_run_script
     return
@@ -66,7 +66,7 @@ _jenv_run_script () {
 }
 
 _jenv_view_script () {
-  _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.dev_envs/}
+  _jenv_env_dir=${JENV_DEV_ENV_DIR:-~/.jenv/}
   jenv use $1
   if [ $? = 39 ]; then
     script_dir=$_jenv_env_dir$1/scripts/
