@@ -79,11 +79,9 @@ _jenv_view_script () {
                 _log_line ERROR "$2 is not a valid script in $2"
             fi
         else
-            _log_line ERROR "Must supply an a script to view"
-            _log_line INFO "$1 has the following scripts available:"
-            _log_line INFO "-------------------"
+            _log_line ERROR "Must supply a script to view"
+            _log_line INFO "[$1]"
             find $script_dir* -type d -maxdepth 0 -exec basename {} \;
-            _log_line INFO "-------------------"
         fi
     else
         _log_line ERROR "$1 has no scripts available to view"
