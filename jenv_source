@@ -1,6 +1,10 @@
 #!/bin/bash
 
-export JENV_WORKING_DIR=$(dirname $0)
+if [ "" = "$BASH_SOURCE" ]; then
+  export JENV_WORKING_DIR=$(dirname $0)
+else
+  export JENV_WORKING_DIR=$(dirname $BASH_SOURCE)
+fi
 source $JENV_WORKING_DIR/logging.sh
 source $JENV_WORKING_DIR/create.sh
 source $JENV_WORKING_DIR/list.sh
@@ -42,6 +46,11 @@ _jenv_current () {
 }
 
 jenv () {
+  ## Plans
+  ##
+  ## docs     - A docs dir that lets you store notes
+  ## Describe - describe an environment (print out all its stuffs)
+
   case $1 in
     "create")
       _jenv_create ${@:2}
