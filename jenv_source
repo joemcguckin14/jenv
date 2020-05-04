@@ -26,7 +26,32 @@ _jenv_edit () {
 }
 
 _jenv_get_color_for_prompt () {
-  echo "\033[$1m"
+  PURPLE=35
+  BLACK=30
+  BLUE=34
+  CYAN=36
+  GREEN=32
+  RED=31
+  WHITE=37
+  YELLOW=33
+  RESET=0
+  color=$RESET
+  case $1 in
+    purple)
+      color=$PURPLE
+      ;;
+    reset)
+      color=$RESET
+      ;;
+    *)
+      echo "Color not found: $1"
+      ;;
+  esac
+  if [ "" = "$BASH_SOURCE" ]; then
+    echo "\033["$color"m"
+  else
+    echo "\[\033["$color"m\]"
+  fi
 }
 
 jenv_get_prompt () {
@@ -38,7 +63,12 @@ jenv_get_prompt () {
 }
 
 jenv_prepend_to_prompt () {
-  export PROMPT=$(_jenv_get_color_for_prompt 35)'$(jenv_get_prompt)'$PROMPT
+  prefix=$(_jenv_get_color_for_prompt purple)'$(jenv_get_prompt)'$(_jenv_get_color_for_prompt reset)
+  if [ "" = "$BASH_SOURCE" ]; then
+    export PROMPT=$prefix$PROMPT
+  else
+    export PS1=$prefix$PS1
+  fi
 }
 
 _jenv_current () {
